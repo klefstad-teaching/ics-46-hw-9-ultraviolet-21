@@ -8,7 +8,7 @@ void error(string word1, string word2, string msg) {
     cout << msg << "No path from " << word1 << " to " << word2 << endl;
 }
 
-bool edit_distance_within(const std::string& str1, const std::string& str2, int d) //use word ladder for this {
+bool edit_distance_within(const std::string& str1, const std::string& str2, int d) {//use word ladder for this 
 return true;
 }
 
