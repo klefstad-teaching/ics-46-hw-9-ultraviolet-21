@@ -16,7 +16,7 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
     vector<int> distances(G.numVertices, INF); 
     vector<bool> visited(G.numVertices, false);
 
-    previous.assign(G.numVertices, -1); //use assign instead of resize
+    previous.assign(G.numVertices, -1);
     
     distances[source] = 0;
     previous[source] = -1; //source has no previous value
@@ -58,4 +58,10 @@ vector<int> extract_shortest_path(const vector<int>& distances, const vector<int
     return path;
 }
 
-//void print_path(const vector<int>& v, int total) - why total?
+void print_path(const vector<int>& v, int total) {
+    for (auto vertex: v) {
+        cout << vertex << " ";
+    }
+    cout << endl;
+    cout << "Total weight: " << total << endl;
+}
