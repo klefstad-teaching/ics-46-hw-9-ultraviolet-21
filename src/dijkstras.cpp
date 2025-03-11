@@ -63,5 +63,5 @@ void print_path(const vector<int>& v, int total) {
         cout << vertex << " ";
     }
     cout << endl;
-    cout << "Total weight: " << total << endl;
+    cout << "Total cost is " << total << endl;
 }

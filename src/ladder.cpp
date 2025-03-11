@@ -8,7 +8,9 @@ void error(string word1, string word2, string msg) {
     cout << msg << "No path from " << word1 << " to " << word2 << endl;
 }
 
-bool edit_distance_within(const std::string& str1, const std::string& str2, int d); //use word ladder for this
+bool edit_distance_within(const std::string& str1, const std::string& str2, int d) //use word ladder for this {
+return true;
+}
 
 bool is_adjacent(const string& word1, const string& word2) {
     return change_letter(word1, word2) || add_letter(word1, word2) || delete_letter(word1, word2);
