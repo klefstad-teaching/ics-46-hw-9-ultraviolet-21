@@ -13,7 +13,7 @@ return true;
 }
 
 bool is_adjacent(const string& word1, const string& word2) {
-    //if (word1 == word2) return true;
+    if (word1 == word2) return true;
     return change_letter(word1, word2) || add_letter(word1, word2) || delete_letter(word1, word2);
 }
 
@@ -129,7 +129,7 @@ void load_words(set<string>& word_list, const string& file_name) {
 
 void print_word_ladder(const vector<string>& ladder) {
     if (!ladder.empty()) {
-    cout << "Word ladder found: " << endl;
+    cout << "Word ladder found: ";
     for (const auto& word: ladder) {
         cout << word << " ";
     }
