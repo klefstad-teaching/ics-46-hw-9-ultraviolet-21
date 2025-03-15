@@ -23,29 +23,23 @@ int levenshtein(const string& word1, const string& word2) {
     vector<int> prevRow(n + 1, 0);
     vector<int> currRow(n + 1, 0);
 
-    // Initialize the first row
     for (int j = 0; j <= n; ++j) {
         prevRow[j] = j;
     }
 
-    // Compute the rest of the rows
     for (int i = 1; i <= m; ++i) {
-        currRow[0] = i; // The first column is just i (edit distance with empty word2)
+        currRow[0] = i; 
         
         for (int j = 1; j <= n; ++j) {
             if (word1[i - 1] == word2[j - 1]) {
-                currRow[j] = prevRow[j - 1]; // No change needed
+                currRow[j] = prevRow[j - 1]; 
             } else {
-                int insert = currRow[j - 1]; // Insert (word2[j-1] into word1)
-                int remove = prevRow[j]; // Remove (word1[i-1] from word2)
-                int replace = prevRow[j - 1]; // Replace (word1[i-1] with word2[j-1])
-                
-                // Take the minimum of the three operations
+                int insert = currRow[j - 1]; 
+                int remove = prevRow[j]; 
+                int replace = prevRow[j - 1]; 
                 currRow[j] = 1 + min(insert, min(remove, replace));
             }
         }
-        
-        // Swap the rows (move currRow to prevRow)
         swap(prevRow, currRow);
     }
 
@@ -53,7 +47,7 @@ int levenshtein(const string& word1, const string& word2) {
 }
 
 bool is_adjacent(const string& word1, const string& word2) {
-    return edit_distance_within(word1, word2, 1);
+    //return edit_distance_within(word1, word2, 1);
     if (word1 == word2) return true;
     return change_letter(word1, word2) || add_letter(word1, word2) || delete_letter(word1, word2);
 }
@@ -136,7 +130,8 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
             string current_word = current_path.back();
 
             for ( auto next_word: word_list) {
-                if (is_adjacent(current_word, next_word) && visited.find(next_word) == visited.end()) {
+                if (visited.find(next_word) == visited.end() && is_adjacent(current_word, next_word)) {
+                
                     //make sure current_word != next_word
                     if (next_word == end_word) {
                         current_path.push_back(next_word);
