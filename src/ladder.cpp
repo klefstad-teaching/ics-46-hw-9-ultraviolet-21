@@ -132,8 +132,7 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
             string current_word = current_path.back();
 
             for ( auto next_word: word_list) {
-                if (visited.find(next_word) == visited.end()) { 
-                   if (adj(current_word, next_word)){
+                if (adj(current_word, next_word) && visited.find(next_word) == visited.end()) { 
                 
                     //make sure current_word != next_word
                     if (next_word == end_word) {
@@ -146,7 +145,6 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
                         current_path.pop_back();
                         current_level_visited.insert(next_word);
                     }
-            }
             }
         }
 
