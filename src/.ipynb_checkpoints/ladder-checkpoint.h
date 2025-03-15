@@ -22,4 +22,6 @@ bool change_letter(const string& word1, const string& word2);
 bool add_letter(const string& word1, const string& word2);
 bool delete_letter(const string& word1, const string& word2);
 
+bool adj(const string& word1, const string& word2);
+
 int levenshtein(const string& word1, const string& word2);

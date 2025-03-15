@@ -47,8 +47,10 @@ int levenshtein(const string& word1, const string& word2) {
 }
 
 bool is_adjacent(const string& word1, const string& word2) {
-    //return edit_distance_within(word1, word2, 1);
-    if (word1 == word2) return true;
+    return edit_distance_within(word1, word2, 1);
+}
+
+bool adj(const string& word1, const string& word2) {
     return change_letter(word1, word2) || add_letter(word1, word2) || delete_letter(word1, word2);
 }
 
@@ -130,7 +132,8 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
             string current_word = current_path.back();
 
             for ( auto next_word: word_list) {
-                if (visited.find(next_word) == visited.end() && is_adjacent(current_word, next_word)) {
+                if (visited.find(next_word) == visited.end()) { 
+                   if (adj(current_word, next_word){
                 
                     //make sure current_word != next_word
                     if (next_word == end_word) {
@@ -143,6 +146,7 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
                         current_path.pop_back();
                         current_level_visited.insert(next_word);
                     }
+            }
             }
         }
 
